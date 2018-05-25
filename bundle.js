@@ -143,3 +143,33 @@ var busca = newVetor.find(function (numero) {
   /*filter também retorna true ou false*/
 });
 console.log(busca);
+/*arrow functions*/
+
+var dobro = vetor.map(function (numero) {
+  return 2 * numero;
+});
+console.log(dobro);
+/*é o mesmo que...*/
+
+var dobro2 = vetor.map(function (numero) {
+  return 2 * numero;
+});
+console.log(dobro2);
+/*valor padrão nos parâmetros*/
+
+function soma2() {
+  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
+  return a + b;
+}
+
+console.log(soma2(5));
+/*ou*/
+
+var soma3 = function soma3() {
+  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
+  return a + b;
+};
+
+console.log(soma3(5));

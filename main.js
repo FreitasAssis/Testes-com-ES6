@@ -102,3 +102,23 @@ const busca = newVetor.find(
     }
 );
 console.log(busca);
+
+/*arrow functions*/
+const dobro = vetor.map(numero => 2 * numero);
+console.log(dobro);
+
+/*é o mesmo que...*/
+const dobro2 = vetor.map(
+    function (numero) { return 2 * numero }
+);
+console.log(dobro2);
+
+/*valor padrão nos parâmetros*/
+function soma2(a=1, b=2) {
+    return a + b
+}
+console.log(soma2(5));
+
+/*ou*/
+const soma3 = (a=1, b=2) => a + b;
+console.log(soma3(5));
