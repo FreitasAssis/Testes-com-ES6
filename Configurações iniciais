@@ -1,0 +1,40 @@
+yarn init
+
+//trabalhar com a interface de linha de comando do Babel
+yarn add @babel/cli
+
+yarn add @babel/preset-env
+
+yarn add @babel/core
+
+//ignorar a pasta do node no controle de versão do git
+   criar o arquivo ".gitignore" na raiz do projeto
+   listar a pasta "node_modules/" na primeira linha do arquivo
+
+//configurar o Babel
+   criar o arquivo ".babelrc" contendo o código:
+
+   {
+      "presets": ["@babel/preset-env"]
+   }
+
+//criar o arquivo "index.html"
+//criar "main.js"
+//dentro de main:
+
+alert('Teste');
+
+//em package.json, criar a propriedade "scripts", que vai descrever como executar comandos via terminal
+
+"scripts": {
+   "dev": "babel ./main.js -o ./bundle.js -w"
+}
+
+//feito isso, pode executar o seguinte comando no terminal:
+
+yarn dev
+
+//ele criará o arquivo bundle.js, que trará o código ES6 traduzido para os navegadores
+
+//no body do html, inserir o script q chama o bundle
+<script src="./bundle.js"></script>

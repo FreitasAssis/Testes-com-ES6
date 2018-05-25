@@ -60,4 +60,45 @@ teste(12);
 /*erro y é variavel local, só é vista na function
 console.log(y);*/
 
+const vetor = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+const newVetor = vetor.map(
+    function (numero) {
+        if (numero % 2 == 0) {
+            return 'par';
+        }
+        else { return 'impar' }
+    }
+);
+console.log(newVetor);
+
+
+const vetor2 = vetor.map(
+    function (numero, index) {
+        return 'índice ' + index + ' => ' + numero;
+    }
+);
+console.log(vetor2);
+
+const soma = vetor.reduce(
+    function (total, next) {
+        return total + next;
+    }
+);
+console.log(soma);
+
+const pares = vetor.filter(
+    function (numero) {
+        return numero % 2 ==0;
+        /*filter retorna true ou false*/
+    }
+);
+console.log(pares);
+
+const busca = newVetor.find(
+    function (numero) {
+        return numero == 'par';
+        /*filter também retorna true ou false*/
+    }
+);
+console.log(busca);
