@@ -38,3 +38,14 @@ yarn dev
 
 //no body do html, inserir o script q chama o bundle
 <script src="./bundle.js"></script>
+
+//utilizando REST / SPREAD
+
+yarn add @babel/plugin-proposal-object-rest-spread
+
+//em babelrc:
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": ["@babel/plugin-proposal-object-rest-spread"]
+}
+

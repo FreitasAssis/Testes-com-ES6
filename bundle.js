@@ -1,5 +1,11 @@
 "use strict";
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } _setPrototypeOf(subClass.prototype, superClass && superClass.prototype); if (superClass) _setPrototypeOf(subClass, superClass); }
@@ -173,3 +179,70 @@ var soma3 = function soma3() {
 };
 
 console.log(soma3(5));
+/*Desestruturação:*/
+
+var usuario = {
+  nome: 'Luiz',
+  idade: 33,
+  endereco: {
+    cidade: 'Parnamirim',
+    estado: 'RN'
+  }
+};
+var nome1 = usuario.nome;
+var cidade1 = usuario.endereco.cidade;
+var estado1 = usuario.endereco.estado;
+console.log("Meu nome \xE9 ".concat(nome1, ", moro em ").concat(cidade1, " / ").concat(estado1));
+/*ou*/
+
+var idade = usuario.idade,
+    _usuario$endereco = usuario.endereco,
+    cidade = _usuario$endereco.cidade,
+    estado = _usuario$endereco.estado;
+console.log(idade);
+console.log(cidade);
+console.log(estado);
+
+function mostrarDados(_ref) {
+  var nome = _ref.nome,
+      idade = _ref.idade,
+      _ref$endereco = _ref.endereco,
+      cidade = _ref$endereco.cidade,
+      estado = _ref$endereco.estado;
+  console.log(nome, idade, cidade, estado);
+}
+
+mostrarDados(usuario);
+/*Short Syntax*/
+
+var user1 = {
+  nome: 'outro usuário',
+  cidade1: cidade1,
+  estado1: estado1
+};
+console.log(user1);
+/*REST (...) (Pega o 'resto das propriedades')*/
+
+var nome = usuario.nome,
+    resto = _objectWithoutProperties(usuario, ["nome"]);
+
+console.log(nome);
+console.log(resto);
+var arr = [1, 2, 3, 4];
+var a = arr[0],
+    b = arr[1],
+    c = arr.slice(2);
+console.log(a);
+console.log(c);
+/*SPREAD (Repassa informações de um objeto/array para outra estrutura de dados)*/
+
+var arr1 = [1, 2, 3];
+var arr2 = [4, 5, 6];
+var arr3 = arr1.concat(arr2);
+console.log(arr3);
+
+var usuario2 = _objectSpread({}, usuario, {
+  nome: 'mudei o nome'
+});
+
+console.log(usuario2);

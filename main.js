@@ -122,3 +122,64 @@ console.log(soma2(5));
 /*ou*/
 const soma3 = (a=1, b=2) => a + b;
 console.log(soma3(5));
+
+/*Desestruturação:*/
+
+const usuario = {
+    nome: 'Luiz',
+    idade: 33,
+    endereco: {
+        cidade: 'Parnamirim',
+        estado: 'RN',
+    },
+};
+
+const nome1 = usuario.nome;
+const cidade1 = usuario.endereco.cidade;
+const estado1 = usuario.endereco.estado;
+
+console.log(`Meu nome é ${nome1}, moro em ${cidade1} / ${estado1}`);
+
+/*ou*/
+
+const { idade, endereco: { cidade, estado } } = usuario;
+
+console.log(idade);
+console.log(cidade);
+console.log(estado);
+
+function mostrarDados({ nome, idade, endereco: { cidade, estado } }) {
+    console.log(nome, idade, cidade, estado);
+}
+mostrarDados(usuario);
+
+/*Short Syntax*/
+
+const user1 = {
+    nome: 'outro usuário',
+    cidade1,
+    estado1,
+};
+console.log(user1);
+
+/*REST (...) (Pega o 'resto das propriedades')*/
+
+const { nome, ...resto } = usuario;
+console.log(nome);
+console.log(resto);
+
+const arr = [1, 2, 3, 4];
+const [ a, b, ...c ] = arr;
+console.log(a);
+console.log(c);
+
+/*SPREAD (Repassa informações de um objeto/array para outra estrutura de dados)*/
+
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const arr3 = [ ...arr1, ...arr2 ];
+console.log(arr3);
+
+const usuario2 = { ...usuario, nome: 'mudei o nome' };
+console.log(usuario2);
