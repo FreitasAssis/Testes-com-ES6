@@ -1,9 +1,8 @@
 # Testes-com-ES6
 ### Repositório dos meus arquivos de estudo em ECMAScript.
+### Configurações iniciais:
 
-_Obs: Aqui no repositório não está a pasta com os arquivos do Node._
-
-#### Passo-a-passo / Configurações iniciais:
+_Obs: Aqui no repositório não está a pasta com os arquivos do Node. Na sequência temos as configurações iniciais do ambiente, para trabalhar com ES6. Os códigos JS estão nos demais arquivos do repositório, em especial, no **main.js**_
 
 ```yarn init```
 
