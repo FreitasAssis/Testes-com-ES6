@@ -29,6 +29,7 @@ __Configurar o Babel:__
    }
 ```
 **Criar o arquivo "index.html"**
+
 **Criar "main.js"**
 
 _Dentro de main:_
