@@ -1,6 +1,7 @@
 yarn init
 
-//trabalhar com a interface de linha de comando do Babel
+//instalar as dependencias para trabalhar com a interface de linha de comando do Babel
+
 yarn add @babel/cli
 
 yarn add @babel/preset-env
@@ -48,4 +49,90 @@ yarn add @babel/plugin-proposal-object-rest-spread
   "presets": ["@babel/preset-env"],
   "plugins": ["@babel/plugin-proposal-object-rest-spread"]
 }
+-----------------------------------------------------------------
 
+//como as dependências que estão sendo instaladas são apenas para o ambiente de desenvolvimento, alteramos as dependências para 'devDependencies'
+//instalar as seguintes dependências:
+
+yarn add webpack webpack-cli -D
+
+//o -D é para que seja instalado apenas para o ambiente de desenvolvimento
+
+//criar o arquivo de configuração do webpack
+
+webpack.config.js
+
+//Com as seguintes configurações
+
+module.exports = {
+    entry: './main.js',
+    output: {
+        path: __dirname,
+        filename: 'bundle.js',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                }
+            }
+        ],
+    },
+};
+
+//instalar o loader
+
+yarn add babel-loader -D
+
+//testar o webpack
+//alterar o script em package-json para
+
+"dev": "webpack --mode=development -w"
+
+//organizando o projeto: Criar as pastas 'public', onde ficarão os arquivos que não precisam ser monitorados pelo webpack e 'src', onde ficarão os arquivos .js, que precisam ser monitorados.
+
+//instalar dev-server
+
+yarn add webpack-dev-server -D
+
+//alterar webpack.config.js
+
+module.exports = {
+    entry: './src/main.js',
+    output: {
+        path: __dirname + '/public',
+        filename: 'bundle.js',
+    },
+    devServer: {
+        contentBase:  __dirname + '/public',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                }
+            }
+        ],
+    },
+};
+
+//alterar o script em package.json
+
+"dev": "webpack-dev-server --mode=development"
+
+//como o dev-server não cria o bundle.js, apenas o deixa embutido, caso precise do arquivo (para subir a aplicação, por exemplo), adicionamos um comando no script
+
+"scripts": {
+    "dev": "webpack-dev-server --mode=development",
+    "build": "webpack --mode=production"
+  }
+
+//em seguida rodamos o comando
+
+yarn build

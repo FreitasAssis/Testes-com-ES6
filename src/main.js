@@ -1,3 +1,4 @@
+/*
 class Mostrar {
     constructor() {
         this.data = [];
@@ -37,8 +38,8 @@ document.getElementById('soma').onclick = function () {
 }
 
 //erro: const não pode ser alterada
-/*const a = 5;
-a=3;*/
+/!*const a = 5;
+a=3;*!/
 
 //mas pode ser multada
 const pessoa = {
@@ -57,8 +58,8 @@ function teste(x) {
     }
 }
 teste(12);
-/*erro y é variavel local, só é vista na function
-console.log(y);*/
+/!*erro y é variavel local, só é vista na function
+console.log(y);*!/
 
 const vetor = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -90,7 +91,7 @@ console.log(soma);
 const pares = vetor.filter(
     function (numero) {
         return numero % 2 ==0;
-        /*filter retorna true ou false*/
+        /!*filter retorna true ou false*!/
     }
 );
 console.log(pares);
@@ -98,32 +99,32 @@ console.log(pares);
 const busca = newVetor.find(
     function (numero) {
         return numero == 'par';
-        /*filter também retorna true ou false*/
+        /!*filter também retorna true ou false*!/
     }
 );
 console.log(busca);
 
-/*arrow functions*/
+/!*arrow functions*!/
 const dobro = vetor.map(numero => 2 * numero);
 console.log(dobro);
 
-/*é o mesmo que...*/
+/!*é o mesmo que...*!/
 const dobro2 = vetor.map(
     function (numero) { return 2 * numero }
 );
 console.log(dobro2);
 
-/*valor padrão nos parâmetros*/
+/!*valor padrão nos parâmetros*!/
 function soma2(a=1, b=2) {
     return a + b
 }
 console.log(soma2(5));
 
-/*ou*/
+/!*ou*!/
 const soma3 = (a=1, b=2) => a + b;
 console.log(soma3(5));
 
-/*Desestruturação:*/
+/!*Desestruturação:*!/
 
 const usuario = {
     nome: 'Luiz',
@@ -140,7 +141,7 @@ const estado1 = usuario.endereco.estado;
 
 console.log(`Meu nome é ${nome1}, moro em ${cidade1} / ${estado1}`);
 
-/*ou*/
+/!*ou*!/
 
 const { idade, endereco: { cidade, estado } } = usuario;
 
@@ -153,7 +154,7 @@ function mostrarDados({ nome, idade, endereco: { cidade, estado } }) {
 }
 mostrarDados(usuario);
 
-/*Short Syntax*/
+/!*Short Syntax*!/
 
 const user1 = {
     nome: 'outro usuário',
@@ -162,7 +163,7 @@ const user1 = {
 };
 console.log(user1);
 
-/*REST (...) (Pega o 'resto das propriedades')*/
+/!*REST (...) (Pega o 'resto das propriedades')*!/
 
 const { nome, ...resto } = usuario;
 console.log(nome);
@@ -173,7 +174,7 @@ const [ a, b, ...c ] = arr;
 console.log(a);
 console.log(c);
 
-/*SPREAD (Repassa informações de um objeto/array para outra estrutura de dados)*/
+/!*SPREAD (Repassa informações de um objeto/array para outra estrutura de dados)*!/
 
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
@@ -183,3 +184,14 @@ console.log(arr3);
 
 const usuario2 = { ...usuario, nome: 'mudei o nome' };
 console.log(usuario2);
+
+import { sum } from './src/functions';
+
+console.log(sum(1, 5));
+
+/!*ou*!/
+import * as funcoes from './src/functions';
+
+console.log(funcoes.mult(2, 3));*/
+
+alert('testando');
